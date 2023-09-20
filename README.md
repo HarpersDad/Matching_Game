@@ -1,1 +1,3 @@
-# Matching_Game
+# Matching Game
+
+A simple matching game
