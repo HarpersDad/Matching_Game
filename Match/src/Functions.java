@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Functions
 {
+    // initialize variables
     static int scoreCount = 0;
     static JButton button1 = null;
     static JButton button2 = null;
@@ -30,24 +31,31 @@ public class Functions
         myFrame.getContentPane().add(myLabel);
     }
 
-    // checks if the two clicked tiles match
+    // sets button1 and button2
     public static void checkClick(JButton myButton)
     {
         if (button1 == null)
         {
             button1 = myButton;
             button1.setBackground(Color.WHITE);
+
+            // sets the button text
             setButtonText(button1);
         }
         else
         {
             button2 = myButton;
             button2.setBackground(Color.WHITE);
+
+            // sets the button text
             setButtonText(button2);
+
+            // checks if the two "cards" match
             checkMatch();
         }
     }
 
+    // checks to see if the two chosen cards match
     public static void checkMatch()
     {
         if (Objects.equals(button1.getText(), button2.getText()))
@@ -81,6 +89,7 @@ public class Functions
         }
     }
 
+    // rearranges the buttonText array
     public static void shuffleAndSet(String[] myButtons)
     {
         List<String> top = Arrays.asList(myButtons);
@@ -90,6 +99,7 @@ public class Functions
         top.toArray(UI.buttonText);
     }
 
+    // sets the passed button's text to that of corresponding letter at the same array position
     public static void setButtonText(JButton thisButton)
     {
         for (int i = 0; i < UI.buttons.length; i++)
