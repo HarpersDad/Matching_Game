@@ -39,7 +39,7 @@ public class UI
     static JButton buttonX = new JButton();
     static JButton buttonY = new JButton();
     static JButton buttonZ = new JButton();
-    static JLabel scoreL = new JLabel("Score: 0");
+    static JLabel scoreL = new JLabel("Pairs Remaining: 13");
     static String[] buttonText = {"A", "A", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7",
             "8", "8", "9", "9", "10", "10", "J", "J", "Q", "Q", "K", "K"};
     static Object[] buttons = {buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI,
@@ -89,7 +89,7 @@ public class UI
         Functions.setButtonBounds(myFrame, buttonY, 640, lowerBottomRow, width, height);
         Functions.setButtonBounds(myFrame, buttonZ, 770, lowerBottomRow, width, height);
 
-        Functions.setLabelBounds(myFrame, scoreL, 25, upperTopRow - 25, 100, 20);
+        Functions.setLabelBounds(myFrame, scoreL, 25, upperTopRow - 25, 300, 20);
 
         myFrame.setResizable(false);
         myFrame.setLayout(null);

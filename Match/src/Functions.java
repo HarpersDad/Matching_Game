@@ -9,7 +9,7 @@ import java.util.List;
 public class Functions
 {
     // initialize variables
-    static int scoreCount = 0;
+    static int scoreCount = 13;
     static JButton button1 = null;
     static JButton button2 = null;
     static String cardPath = "";
@@ -166,9 +166,9 @@ public class Functions
             button1 = null;
             button2 = null;
 
-            scoreCount++;
+            scoreCount--;
 
-            UI.scoreL.setText("Score: " + scoreCount);
+            UI.scoreL.setText("Pairs Remaining: " + scoreCount);
 
             UI.myFrame.repaint();
         }
