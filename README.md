@@ -3,5 +3,4 @@
 A simple matching game
 
 - card images were sourced from Wikipedia.com.<br>
-- when implementing the reset game function, the game gets an additional click on the last<br>
-- button pressed which causes the program to think that your next "first click" is already made.<br>
+- the "Epilepsy" folder has a version of the program that is just non-stop shuffling.  It shows the face of the cards as they are shuffled.<br>
