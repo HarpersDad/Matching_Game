@@ -80,7 +80,7 @@ public class UI
                     "Ar", "Ar", "2r", "2r", "3r", "3r", "4r", "4r", "5r", "5r", "6r", "6r", "7r", "7r", "8r", "8r",
                     "9r", "9r", "10r", "10r", "Jr", "Jr", "Qr", "Qr", "Kr", "Kr"
             };
-    static Object[] buttons =
+    static JButton[] buttons =
             {
                     buttonA1, buttonB1, buttonC1, buttonD1, buttonE1, buttonF1, buttonG1, buttonH1, buttonI1, buttonJ1,
                     buttonK1, buttonL1, buttonM1, buttonN1, buttonO1, buttonP1, buttonQ1, buttonR1, buttonS1, buttonT1,

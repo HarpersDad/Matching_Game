@@ -23,7 +23,8 @@ public class Functions
         myButton.setBounds(x, y, w, h);
         myFrame.getContentPane().add(myButton);
 
-        setBackImage(myButton);
+        //setBackImage(myButton);
+        jank(myButton);
     }
 
     // create and set character data labels
@@ -54,6 +55,8 @@ public class Functions
         getCardPath(myButton);
 
         myButton.setIcon(null);
+
+        myButton.setText(null);
 
         try
         {
@@ -253,5 +256,43 @@ public class Functions
                 thisButton.setText(UI.buttonText[i]);
             }
         }
+    }
+
+    static void resetGame()
+    {
+        if (scoreCount == 0)
+        {
+            int option = JOptionPane.showConfirmDialog(null, "Play Again?", "Game Over", JOptionPane.YES_NO_OPTION);
+
+            if (option == 0)
+            {
+                UI.myFrame.dispose();
+
+                scoreCount = 26;
+
+                UI.buttonClicked = null;
+
+                cardPath = null;
+                cardPathA = null;
+                cardPathB = null;
+
+                button1 = null;
+                button2 = null;
+
+                UI.createUI();
+            }
+            else
+            {
+                System.exit(0);
+            }
+        }
+    }
+
+    public static void jank(JButton thisButton)
+    {
+        setButtonText(thisButton);
+        setFrontImage(thisButton);
+
+        UI.myFrame.repaint();
     }
 }
