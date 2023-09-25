@@ -8,31 +8,26 @@ import java.util.List;
 
 public class Functions
 {
-    // initialize variables
-    static int scoreCount = 26;
-    static JButton button1 = null;
-    static JButton button2 = null;
-    static String cardPath = "";
-    static String cardPathA = "";
-    static String cardPathB = "";
-
     // create and set Button bounds
-    public static void setButtonBounds(JFrame myFrame, JButton myButton, int x, int y, int w, int h)
+    public static void setButtonBounds(JButton myButton, int x, int y)
     {
         myButton.setFont(new Font("Arial", Font.PLAIN, 0));
-        myButton.setBounds(x, y, w, h);
-        myFrame.getContentPane().add(myButton);
+        myButton.setBounds(x, y, Variables.width, Variables.height);
+        Variables.myFrame.getContentPane().add(myButton);
 
         setBackImage(myButton);
+
+        myButton.addActionListener(e ->
+        {if (Variables.buttonClicked != myButton) {Variables.buttonClicked = myButton;Functions.checkClick(myButton);}});
     }
 
     // create and set character data labels
-    public static void setLabelBounds(JFrame myFrame, JLabel myLabel, int x, int y, int w, int h)
+    public static void setLabelBounds(JLabel myLabel, int x, int y, int w, int h)
     {
         myLabel.setFont(new Font("Arial", Font.PLAIN, 12));
         myLabel.setBounds(x, y, w, h);
         myLabel.setForeground(Color.BLACK);
-        myFrame.getContentPane().add(myLabel);
+        Variables.myFrame.getContentPane().add(myLabel);
     }
 
     // sets the button image
@@ -57,7 +52,7 @@ public class Functions
 
         try
         {
-            Image myImage = ImageIO.read(Objects.requireNonNull(Functions.class.getResource(cardPath)));
+            Image myImage = ImageIO.read(Objects.requireNonNull(Functions.class.getResource(Variables.cardPath)));
             myButton.setIcon(new ImageIcon(myImage));
         }
         catch(Exception e)
@@ -71,82 +66,82 @@ public class Functions
         switch (myButton.getText())
         {
             case "2b":
-                cardPath = "Resources/cards/2b.png";
+                Variables.cardPath = "Resources/cards/2b.png";
                 break;
             case "3b":
-                cardPath = "Resources/cards/3b.png";
+                Variables.cardPath = "Resources/cards/3b.png";
                 break;
             case "4b":
-                cardPath = "Resources/cards/4b.png";
+                Variables.cardPath = "Resources/cards/4b.png";
                 break;
             case "5b":
-                cardPath = "Resources/cards/5b.png";
+                Variables.cardPath = "Resources/cards/5b.png";
                 break;
             case "6b":
-                cardPath = "Resources/cards/6b.png";
+                Variables.cardPath = "Resources/cards/6b.png";
                 break;
             case "7b":
-                cardPath = "Resources/cards/7b.png";
+                Variables.cardPath = "Resources/cards/7b.png";
                 break;
             case "8b":
-                cardPath = "Resources/cards/8b.png";
+                Variables.cardPath = "Resources/cards/8b.png";
                 break;
             case "9b":
-                cardPath = "Resources/cards/9b.png";
+                Variables.cardPath = "Resources/cards/9b.png";
                 break;
             case "10b":
-                cardPath = "Resources/cards/10b.png";
+                Variables.cardPath = "Resources/cards/10b.png";
                 break;
             case "Jb":
-                cardPath = "Resources/cards/Jb.png";
+                Variables.cardPath = "Resources/cards/Jb.png";
                 break;
             case "Qb":
-                cardPath = "Resources/cards/Qb.png";
+                Variables.cardPath = "Resources/cards/Qb.png";
                 break;
             case "Kb":
-                cardPath = "Resources/cards/Kb.png";
+                Variables.cardPath = "Resources/cards/Kb.png";
                 break;
             case "Ab":
-                cardPath = "Resources/cards/Ab.png";
+                Variables.cardPath = "Resources/cards/Ab.png";
                 break;
             case "2r":
-                cardPath = "Resources/cards/2r.png";
+                Variables.cardPath = "Resources/cards/2r.png";
                 break;
             case "3r":
-                cardPath = "Resources/cards/3r.png";
+                Variables.cardPath = "Resources/cards/3r.png";
                 break;
             case "4r":
-                cardPath = "Resources/cards/4r.png";
+                Variables.cardPath = "Resources/cards/4r.png";
                 break;
             case "5r":
-                cardPath = "Resources/cards/5r.png";
+                Variables.cardPath = "Resources/cards/5r.png";
                 break;
             case "6r":
-                cardPath = "Resources/cards/6r.png";
+                Variables.cardPath = "Resources/cards/6r.png";
                 break;
             case "7r":
-                cardPath = "Resources/cards/7r.png";
+                Variables.cardPath = "Resources/cards/7r.png";
                 break;
             case "8r":
-                cardPath = "Resources/cards/8r.png";
+                Variables.cardPath = "Resources/cards/8r.png";
                 break;
             case "9r":
-                cardPath = "Resources/cards/9r.png";
+                Variables.cardPath = "Resources/cards/9r.png";
                 break;
             case "10r":
-                cardPath = "Resources/cards/10r.png";
+                Variables.cardPath = "Resources/cards/10r.png";
                 break;
             case "Jr":
-                cardPath = "Resources/cards/Jr.png";
+                Variables.cardPath = "Resources/cards/Jr.png";
                 break;
             case "Qr":
-                cardPath = "Resources/cards/Qr.png";
+                Variables.cardPath = "Resources/cards/Qr.png";
                 break;
             case "Kr":
-                cardPath = "Resources/cards/Kr.png";
+                Variables.cardPath = "Resources/cards/Kr.png";
                 break;
             case "Ar":
-                cardPath = "Resources/cards/Ar.png";
+                Variables.cardPath = "Resources/cards/Ar.png";
                 break;
         }
     }
@@ -154,42 +149,42 @@ public class Functions
     // sets button1 and button2
     public static void checkClick(JButton myButton)
     {
-        if (button1 == null)
+        if (Variables.button1 == null)
         {
-            button1 = myButton;
-            button1.setBackground(Color.WHITE);
+            Variables.button1 = myButton;
+            Variables.button1.setBackground(Color.WHITE);
 
             // sets the button text
-            setButtonText(button1);
+            setButtonText(Variables.button1);
             //System.out.println(button1.getText());
 
             // sets button image
-            setFrontImage(button1);
+            setFrontImage(Variables.button1);
 
             // remove the text from the button
-            button1.setText(null);
+            Variables.button1.setText(null);
 
             // sets the card's image path for reference
-            cardPathA = cardPath;
+            Variables.cardPathA = Variables.cardPath;
         }
         else
         {
-            button2 = myButton;
-            button2.setBackground(Color.WHITE);
-            button2.setIcon(null);
+            Variables.button2 = myButton;
+            Variables.button2.setBackground(Color.WHITE);
+            Variables.button2.setIcon(null);
 
             // sets the button text
-            setButtonText(button2);
+            setButtonText(Variables.button2);
             //System.out.println(button2.getText());
 
             // sets button image
-            setFrontImage(button2);
+            setFrontImage(Variables.button2);
 
             // remove the text from the button
-            button2.setText(null);
+            Variables.button2.setText(null);
 
             // sets the card's image path for reference
-            cardPathB = cardPath;
+            Variables.cardPathB = Variables.cardPath;
 
             // checks if the two "cards" match
             checkMatch();
@@ -199,38 +194,36 @@ public class Functions
     // checks to see if the two chosen cards match
     public static void checkMatch()
     {
-        if (cardPathA == cardPathB)
+        if (Objects.equals(Variables.cardPathA, Variables.cardPathB))
         {
-            UI.myFrame.remove(button1);
-            UI.myFrame.remove(button2);
+            Variables.myFrame.remove(Variables.button1);
+            Variables.myFrame.remove(Variables.button2);
 
-            scoreCount--;
+            Variables.scoreCount--;
 
-            UI.scoreL.setText("Pairs Remaining: " + scoreCount);
+            Variables.scoreL.setText("Pairs Remaining: " + Variables.scoreCount);
 
-            UI.myFrame.repaint();
+            Variables.myFrame.repaint();
         }
-        else if (cardPathA != cardPathB)
+        else if (!Objects.equals(Variables.cardPathA, Variables.cardPathB))
         {
             JOptionPane.showMessageDialog(null, "The two tiles do not match");
 
-            button1.setText("");
-            button2.setText("");
+            Variables.button1.setText("");
+            Variables.button2.setText("");
 
-            button1.setBackground(Color.BLUE);
-            button2.setBackground(Color.BLUE);
+            Variables.button1.setBackground(Color.BLUE);
+            Variables.button2.setBackground(Color.BLUE);
 
-            setBackImage(button1);
-            setBackImage(button2);
+            setBackImage(Variables.button1);
+            setBackImage(Variables.button2);
         }
 
         //System.out.println("next pair");
 
-        UI.buttonClicked = null;
-        button1 = null;
-        button2 = null;
-
-        //resetGame();
+        Variables.buttonClicked = null;
+        Variables.button1 = null;
+        Variables.button2 = null;
     }
 
     // rearranges the buttonText array
@@ -240,17 +233,17 @@ public class Functions
 
         Collections.shuffle(top);
 
-        top.toArray(UI.buttonText);
+        top.toArray(Variables.buttonText);
     }
 
     // sets the passed button's text to that of corresponding letter at the same array position
     public static void setButtonText(JButton thisButton)
     {
-        for (int i = 0; i < UI.buttons.length; i++)
+        for (int i = 0; i < Variables.buttons.length; i++)
         {
-            if (thisButton == UI.buttons[i])
+            if (thisButton == Variables.buttons[i])
             {
-                thisButton.setText(UI.buttonText[i]);
+                thisButton.setText(Variables.buttonText[i]);
             }
         }
     }
